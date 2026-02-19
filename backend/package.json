@@ -1,0 +1,12 @@
+{
+  "name": "todobackend",
+  "version": "1.0.0",
+  "description": "It is a backend for todo's crud opertions",
+  "license": "ISC",
+  "author": "Adarsh",
+  "type": "modules",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
