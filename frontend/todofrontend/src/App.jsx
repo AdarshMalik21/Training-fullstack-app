@@ -28,7 +28,7 @@ function App() {
       const data = await response.json();
 
       if (!response.ok) {
-        console.error("Backend error:", data.error);
+        console.error("Printing errors here:", data.error);
         return;
       }
 
