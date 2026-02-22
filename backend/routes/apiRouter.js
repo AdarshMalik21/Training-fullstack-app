@@ -4,12 +4,13 @@ import post from "../controller/postData.js";
 import put from "../controller/putData.js";
 import patch from "../controller/patchData.js";
 export const apiRouter = express.Router();
+import {validateTodoInput, validateIdParam, validatePatchFields} from "../middleware/index.js"
 
-apiRouter.post("/todos", post);
+apiRouter.post("/todos",validateTodoInput, post);
 
 apiRouter.get("/todos", getData);
 
 apiRouter.put("/todos/:index", put);
 
 // PATCH method to update only selected fields
-apiRouter.patch("/todos/:id", patch);
+apiRouter.patch("/todos/:id",validateIdParam, validatePatchFields, patch);

@@ -25,15 +25,18 @@ function App() {
         body: JSON.stringify(payload),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error("Failed to save todo");
+        console.error("Backend error:", data.error);
+        return;
       }
 
       setTask("");
       setDate("");
       setRefresh((prev) => prev + 1);
     } catch (error) {
-      console.error(error);
+      console.error("Network error:", error);
     }
   };
   useEffect(() => {
@@ -61,13 +64,16 @@ function App() {
         body: JSON.stringify(updates),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error("Failed to update todo");
+        console.error("Backend error:", data.error);
+        return;
       }
 
       setRefresh((prev) => prev + 1);
     } catch (error) {
-      console.error(error);
+      console.error("Network error:", error);
     }
   };
 
