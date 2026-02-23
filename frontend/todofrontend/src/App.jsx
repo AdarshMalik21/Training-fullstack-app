@@ -76,7 +76,7 @@ function App() {
       console.error("Network error:", error);
     }
   };
-
+  
   const completedList = todos.filter((item) => item.isCompleted === true);
   const pendinglist = todos.filter((item) => item.isCompleted === false);
   return (
