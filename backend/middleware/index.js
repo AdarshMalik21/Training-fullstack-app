@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 export const validateTodoInput = (req,res,next) =>{
     const {newTask, newDate} = req.body;
 
@@ -11,8 +13,8 @@ export const validateTodoInput = (req,res,next) =>{
 }
 
 export const validateIdParam = (req,res,next) =>{
-    const id = parseInt(req.params.id);
-    if(isNaN(id)){
+    // const id = mongoose.Types.ObjectId.isValid(req.params.id)
+    if(!mongoose.Types.ObjectId.isValid(req.params.id)){
         return res.status(400).json({error: "Invalid ID format"})
     }
     next();
